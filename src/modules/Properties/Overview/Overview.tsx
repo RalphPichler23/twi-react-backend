@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import PropertyFilters from '@modules/Properties/Overview/components/PropertyFilters';
 import PropertyGrid from '@modules/Properties/Overview/components/PropertyGrid';
 import Pagination from '@modules/Properties/Overview/components/Pagination';
@@ -7,12 +6,16 @@ import useFetchProperties from '@modules/Properties/Overview/api/useFetchPropert
 import type { PropertyFilters as Filters } from '@modules/Properties/types';
 import LoadingComponent from '@/shared/components/LoadingComponent';
 import ErrorHandle from '@/shared/components/ErrorHandle';
+import Button from '@/shared/components/ui/Button';
+import PropertyCreateModal from '@modules/Properties/Create/container/PropertyCreateModal';
 
 const Properties = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 9;
   
   const [filters, setFilters] = useState<Filters>({});
+
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   // Fetch properties with filters
   const { 
@@ -59,15 +62,15 @@ const Properties = () => {
             Verwalten und durchsuchen Sie alle Immobilien
           </p>
         </div>
-        <Link
-          to="/properties/create"
+        <Button
+          onClick={() => setShowCreateModal(true)}
           className="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary/80 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"/>
           </svg>
           Neue Immobilie
-        </Link>
+        </Button>
       </div>
 
       {/* Filters */}
@@ -79,15 +82,13 @@ const Properties = () => {
 
       {/* Results Header */}
       <div className="flex items-center justify-between mb-4">
-        <p className="text-sm text-gray-600">
-          {isLoading ? (
-            <LoadingComponent />
-          ) : (
-            <>
-              <span className="font-semibold text-gray-900">{totalCount}</span> Immobilien gefunden
-            </>
-          )}
-        </p>
+        {isLoading ? (
+          <LoadingComponent />
+        ) : (
+          <p className="text-sm text-gray-600">
+            <span className="font-semibold text-gray-900">{totalCount}</span> Immobilien gefunden
+          </p>
+        )}
       </div>
 
       {/* Property Grid */}
@@ -105,6 +106,11 @@ const Properties = () => {
           onPageChange={handlePageChange}
         />
       )}
+
+      <PropertyCreateModal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+      />
     </div>
   );
 };

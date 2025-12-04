@@ -18,7 +18,8 @@
       "@modules/*": ["src/modules/*"],
       "@lib/*": ["src/lib/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@navigation/*": ["src/navigation/*"]
+      "@navigation/*": ["src/navigation/*"],
+      "@shared/*": ["src/shared/*"]
     }, 
 
     /* Bundler mode */

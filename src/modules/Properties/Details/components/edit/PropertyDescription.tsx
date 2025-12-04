@@ -25,7 +25,7 @@ interface PropertyDescriptionProps {
           onChange={onChange}
           rows={8}
           placeholder="Beschreiben Sie die Immobilie im Detail..."
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
+          className="w-full px-4 py-3 border focus:outline-none border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
         />
       </div>
     );

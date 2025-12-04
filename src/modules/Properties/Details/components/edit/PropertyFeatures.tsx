@@ -50,7 +50,7 @@ interface PropertyFeaturesProps {
                     value={feat}
                     onChange={e => onFeatureChange(i, e.target.value)}
                     placeholder={`Feature ${i + 1}`}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full pl-10 pr-4 py-3 focus:outline-none border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                   />
                   <svg className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>

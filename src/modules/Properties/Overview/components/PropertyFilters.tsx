@@ -112,23 +112,15 @@ const PropertyFilters = ({ filters, onFilterChange, onReset }: PropertyFiltersPr
         {/* District */}
         <div>
           <label className="block text-sm font-semibold text-gray-900 mb-2">
-            Bezirk
+            Postleitzahl
           </label>
-          <div className="relative">
-            <select
-              value={filters.district || ''}
-              onChange={(e) => handleChange('district', e.target.value)}
-              className={selectClassName}
-            >
-              <option value="">Alle Bezirke</option>
-              <option value="baden">Baden</option>
-              <option value="mödling">Mödling</option>
-              <option value="wr-neustadt">Wr. Neustadt</option>
-            </select>
-            <svg className="absolute right-3 top-3.5 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </div>
+          <input
+            name="district"
+            value={filters.district || ''}
+            onChange={(e) => handleChange('district', e.target.value)}
+            placeholder="z.B. 2500"
+            className="w-full px-4 focus:outline-none py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+          />
         </div>
 
         {/* Min Price */}

@@ -33,7 +33,7 @@ interface PropertyBasicInfoProps {
               onChange={onChange}
               required
               placeholder="z.B. Moderne Villa mit Panoramablick"
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
             />
           </div>
   
@@ -46,7 +46,7 @@ interface PropertyBasicInfoProps {
                 onChange={onChange}
                 required
                 placeholder="Straße und Hausnummer"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
             </div>
   
@@ -58,7 +58,7 @@ interface PropertyBasicInfoProps {
                 onChange={onChange}
                 required
                 placeholder="z.B. Baden"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
               />
             </div>
           </div>
@@ -71,7 +71,7 @@ interface PropertyBasicInfoProps {
               onChange={onChange}
               required
               placeholder="z.B. Baden, Mödling"
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:outline-none focus:ring-primary/20 focus:border-primary transition-colors"
             />
           </div>
         </div>

@@ -16,6 +16,7 @@ export default defineConfig({
       '@lib': path.resolve(__dirname, './src/lib'),
       '@layouts': path.resolve(__dirname, './src/layouts'),
       '@navigation': path.resolve(__dirname, './src/navigation'),
+      '@shared': path.resolve(__dirname, './src/shared'),
     },
   },
 })

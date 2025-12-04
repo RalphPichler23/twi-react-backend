@@ -32,7 +32,7 @@ const PropertyTypeStatus = ({ form, onChange }: PropertyTypeStatusProps) => {
               name="type"
               value={form.type}
               onChange={onChange}
-              className="w-full pl-4 pr-10 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none bg-white cursor-pointer"
+              className="w-full pl-4 pr-10 py-3 focus:outline-none border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none bg-white cursor-pointer"
             >
               <option value="house">🏠 Haus</option>
               <option value="apartment">🏢 Wohnung</option>
@@ -52,7 +52,7 @@ const PropertyTypeStatus = ({ form, onChange }: PropertyTypeStatusProps) => {
               name="status"
               value={form.status}
               onChange={onChange}
-              className="w-full pl-4 pr-10 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none bg-white cursor-pointer"
+              className="w-full pl-4 pr-10 py-3 border focus:outline-none border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none bg-white cursor-pointer"
             >
               <option value="available">✅ Verfügbar</option>
               <option value="reserved">⏳ Reserviert</option>
