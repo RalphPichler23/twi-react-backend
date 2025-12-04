@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0", 
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
     "useDefineForClassFields": true,
@@ -7,6 +8,18 @@
     "module": "ESNext",
     "types": ["vite/client"],
     "skipLibCheck": true,
+
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@utils/types": ["src/utils/types"],
+      "@state": ["src/zustand/index.ts"],
+      "@routes": ["src/navigation/routes.ts"],
+      "@modules/*": ["src/modules/*"],
+      "@lib/*": ["src/lib/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@navigation/*": ["src/navigation/*"]
+    }, 
 
     /* Bundler mode */
     "moduleResolution": "bundler",

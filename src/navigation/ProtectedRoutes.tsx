@@ -1,15 +1,13 @@
-// components/auth/ProtectedRoute.tsx
 import { Navigate, Outlet } from 'react-router-dom';
-import { useStore } from '@state';
+import { useZustand } from '@state';
+import LoadingComponent from '@/shared/components/LoadingComponent';
 
 export const ProtectedRoute = () => {
-  const { accessToken, isAuthLoading } = useStore();
+  const { accessToken, isAuthLoading } = useZustand();
 
   if (isAuthLoading) {
     return (
-      <div className="loading-screen">
-        <p>Loading...</p>
-      </div>
+      <LoadingComponent />
     );
   }
 

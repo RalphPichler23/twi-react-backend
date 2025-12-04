@@ -2,9 +2,7 @@
 
 export interface IUser {
     id: string;
-    email: string;
-    firstname: string;
-    lastname: string;
+    email?: string | undefined;
     created_at: string;
 }
 

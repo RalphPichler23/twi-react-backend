@@ -1,14 +1,14 @@
-// AppRouter.tsx
 import { useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useStore } from '@state';
 import { initializeAuth } from '@lib/supabaseAuth';
-import { ProtectedRoute } from '@components/auth/ProtectedRoute';
-import MainLayout from '@components/layout/MainLayout';
+import { ProtectedRoute } from '@navigation/ProtectedRoutes';
+import MainLayout from '@layouts/MainLayout';
+import { useZustand } from '@state';
 import routes from '@routes';
+import LoadingComponent from '@/shared/components/LoadingComponent';
 
 const AppRouter = () => {
-  const { isAuthLoading } = useStore();
+  const { isAuthLoading } = useZustand();
 
   useEffect(() => {
     initializeAuth();
@@ -16,18 +16,16 @@ const AppRouter = () => {
 
   if (isAuthLoading) {
     return (
-      <div className="app-loading">
-        <p>Loading App...</p>
-      </div>
+      <LoadingComponent />
     );
   }
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading page...</div>}>
+      <Suspense fallback={<LoadingComponent />}>
         <Routes>
           {/* Public Routes */}
-          {routes.public.map((route) => (
+          {routes.public.map((route: any) => (
             <Route
               key={route.path}
               path={route.path}
@@ -38,7 +36,7 @@ const AppRouter = () => {
           {/* Protected Routes mit Layout */}
           <Route element={<ProtectedRoute />}>
             <Route element={<MainLayout />}>
-              {routes.protected.map((route) => (
+              {routes.protected.map((route: any) => (
                 <Route
                   key={route.path}
                   path={route.path}

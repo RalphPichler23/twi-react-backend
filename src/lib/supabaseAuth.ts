@@ -1,9 +1,8 @@
-// lib/supabaseAuth.ts
-import { supabase } from './supabase';
-import { useStore } from '@state';
+import { supabase } from '@lib/supabase';
+import { useZustand } from '@state';
 
 export const initializeAuth = async () => {
-  const { setUser, setAccessToken, setRefreshToken, setAuthLoading } = useStore.getState();
+  const { setUser, setAccessToken, setRefreshToken, setAuthLoading, resetUserState } = useZustand.getState();
   
   setAuthLoading(true);
 
@@ -11,6 +10,7 @@ export const initializeAuth = async () => {
   const { data: { session } } = await supabase.auth.getSession();
   
   if (session) {
+
     setUser(session.user);
     setAccessToken(session.access_token);
     setRefreshToken(session.refresh_token);
@@ -25,7 +25,7 @@ export const initializeAuth = async () => {
       setAccessToken(session.access_token);
       setRefreshToken(session.refresh_token);
     } else if (event === 'SIGNED_OUT') {
-      useStore.getState().resetUserState();
+      resetUserState();
     } else if (event === 'TOKEN_REFRESHED' && session) {
       setAccessToken(session.access_token);
       setRefreshToken(session.refresh_token);
@@ -34,6 +34,9 @@ export const initializeAuth = async () => {
 };
 
 export const signOut = async () => {
+
+  const { resetUserState } = useZustand.getState();
+
   await supabase.auth.signOut();
-  useStore.getState().resetUserState();
+  resetUserState();
 };
