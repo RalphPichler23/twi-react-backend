@@ -3,9 +3,10 @@ interface DeleteConfirmationModalProps {
     isOpen: boolean;
     onClose: () => void;
     onConfirm: () => void;
+    isDeleting?: boolean;
   }
   
-  const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm }: DeleteConfirmationModalProps) => {
+  const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm, isDeleting }: DeleteConfirmationModalProps) => {
     if (!isOpen) return null;
   
     return (
@@ -35,6 +36,7 @@ interface DeleteConfirmationModalProps {
               Abbrechen
             </button>
             <button
+              disabled={isDeleting}
               onClick={onConfirm}
               className="flex-1 cursor-pointer px-4 py-2.5 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
             >

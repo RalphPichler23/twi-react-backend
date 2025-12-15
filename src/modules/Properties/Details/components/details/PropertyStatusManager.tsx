@@ -3,7 +3,6 @@ import type { Property } from '@modules/Properties/types';
 
 interface PropertyStatusManagerProps {
   currentStatus: Property['status'];
-  onStatusChange: (newStatus: Property['status']) => void;
 }
 
 interface StatusConfig {
@@ -20,13 +19,13 @@ interface StatusConfig {
     };
     inactive: {
       border: string;
-      hover: string;
+      bg: string;
       text: string;
     };
   };
 }
 
-const PropertyStatusManager = ({ currentStatus, onStatusChange }: PropertyStatusManagerProps) => {
+const PropertyStatusManager = ({ currentStatus }: PropertyStatusManagerProps) => {
   const statuses: StatusConfig[] = [
     {
       value: 'available',
@@ -42,7 +41,7 @@ const PropertyStatusManager = ({ currentStatus, onStatusChange }: PropertyStatus
         },
         inactive: {
           border: 'border-gray-200',
-          hover: 'hover:border-emerald-200 hover:bg-emerald-50/30',
+          bg: 'border-slate-200 bg-slate-50/30',
           text: 'text-gray-700',
         },
       },
@@ -61,7 +60,7 @@ const PropertyStatusManager = ({ currentStatus, onStatusChange }: PropertyStatus
         },
         inactive: {
           border: 'border-gray-200',
-          hover: 'hover:border-amber-200 hover:bg-amber-50/30',
+          bg: 'border-slate-200 bg-slate-50/30',
           text: 'text-gray-700',
         },
       },
@@ -80,7 +79,7 @@ const PropertyStatusManager = ({ currentStatus, onStatusChange }: PropertyStatus
         },
         inactive: {
           border: 'border-gray-200',
-          hover: 'hover:border-slate-200 hover:bg-slate-50/30',
+          bg: 'border-slate-200 bg-slate-50/30',
           text: 'text-gray-700',
         },
       },
@@ -107,13 +106,12 @@ const PropertyStatusManager = ({ currentStatus, onStatusChange }: PropertyStatus
           const colors = status.colors;
 
           return (
-            <button
+            <div
               key={status.value}
-              onClick={() => onStatusChange(status.value)}
               className={`
                 w-full text-left px-4 py-3.5 rounded-lg border-2 transition-all duration-200
                 ${isActive ? colors.active.border : colors.inactive.border}
-                ${isActive ? colors.active.bg : colors.inactive.hover}
+                ${isActive ? colors.active.bg : colors.inactive.bg}
               `}
             >
               <div className="flex items-center gap-3">
@@ -149,7 +147,7 @@ const PropertyStatusManager = ({ currentStatus, onStatusChange }: PropertyStatus
                   </span>
                 </div>
               </div>
-            </button>
+            </div>
           );
         })}
       </div>

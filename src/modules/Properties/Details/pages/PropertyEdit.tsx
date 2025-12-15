@@ -1,14 +1,15 @@
+// src/modules/Properties/pages/PropertyEdit.tsx
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import useFetchSingleProperty from '@modules/Properties/Details/api/useFetchSingleProperty';
 import useUpdateProperty from '@modules/Properties/Details/api/useUpdateProperty';
-import type { Property } from '@modules/Properties/types';
+import type { Property, PropertyImage } from '@modules/Properties/types';
 import LoadingComponent from '@/shared/components/LoadingComponent';
 import PropertyBasicInfo from '@modules/Properties/Details/components/edit/PropertyBasicInfo';
 import PropertyDetailsForm from '@modules/Properties/Details/components/edit/PropertyDetailsForm';
 import PropertyDescription from '@modules/Properties/Details/components/edit/PropertyDescription';
 import PropertyFeatures from '@modules/Properties/Details/components/edit/PropertyFeatures';
-import PropertyImageUpload from '@modules/Properties/Details/components/edit/PropertyImageUpload';
+import PropertyImageManager from '@modules/Properties/Details/components/edit/PropertyImageManager';
 import PropertyTypeStatus from '@modules/Properties/Details/components/edit/PropertyTypeStatus';
 import PropertyEditActions from '@modules/Properties/Details/components/edit/PropertyEditActions';
 
@@ -23,7 +24,6 @@ type PropertyFormState = {
   bathrooms: number;
   type: Property["type"]; 
   status: Property["status"];
-  image_url: string;  
   description: string;
   features: string[];
 };
@@ -46,10 +46,11 @@ const PropertyEdit = () => {
     bathrooms: 0,
     type: "apartment",
     status: "available",
-    image_url: "",
     description: "",
     features: [],
   });
+
+  const [images, setImages] = useState<PropertyImage[]>([]);
 
   useEffect(() => {
     if (property) {
@@ -64,10 +65,10 @@ const PropertyEdit = () => {
         bathrooms: property.bathrooms,
         type: property.type,
         status: property.status,
-        image_url: property.image_url ?? '',
         description: property.description || '',
         features: property.features || [],
       });
+      setImages(property.images || []);
     }
   }, [property]);
 
@@ -161,8 +162,13 @@ const PropertyEdit = () => {
 
           {/* Right Column - Sidebar */}
           <div className="lg:col-span-1">
-            <div className="space-y-6 lg:top-6">
-              <PropertyImageUpload imageUrl={form.image_url} onChange={handleChange} />
+            <div className="space-y-6 lg:sticky lg:top-6">
+              {/* Replace PropertyImageUpload with PropertyImageManager */}
+              <PropertyImageManager 
+                propertyId={id!}
+                images={images}
+                onImagesChange={setImages}
+              />
               <PropertyTypeStatus form={form} onChange={handleChange} />
               <PropertyEditActions
                 isUpdating={isUpdating}

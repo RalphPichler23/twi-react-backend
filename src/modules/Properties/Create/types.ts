@@ -1,6 +1,7 @@
 import type { Property } from '@modules/Properties/types';
 
 export interface PropertyCreateForm {
+  primaryImageIndex?: number;
   title: string;
   address: string;
   city: string;

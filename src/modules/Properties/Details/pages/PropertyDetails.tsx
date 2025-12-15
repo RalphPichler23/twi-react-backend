@@ -15,6 +15,7 @@ import PropertyStats from '@modules/Properties/Details/components/details/Proper
 import DeleteConfirmationModal from '@shared/components/DeleteConfirmationModal';
 import PropertyCreateModal from '@modules/Properties/Create/container/PropertyCreateModal';
 import ErrorHandle from '@/shared/components/ErrorHandle';
+import useDeleteProperty from '../api/useDeleteProperty';
 
 const PropertyDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,16 +25,12 @@ const PropertyDetails = () => {
   
   const { data: property, isLoading, error } = useFetchSingleProperty(id!);
 
+  const { mutate: deleteProperty, isPending: isDeleting } = useDeleteProperty();
+
   const handleDelete = async () => {
-    // TODO: Implement delete with Supabase
-    console.log('Delete property:', id);
+    deleteProperty({ id: id! });
     setShowDeleteModal(false);
     navigate('/properties');
-  };
-
-  const handleStatusChange = async (newStatus: string) => {
-    // TODO: Implement status update
-    console.log('Update status to:', newStatus);
   };
 
   if (isLoading) return <LoadingComponent />;
@@ -50,8 +47,9 @@ const PropertyDetails = () => {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Left Column - Main Info */}
         <div className="lg:col-span-2 space-y-6">
+          {/* NEW: Pass images array instead of single imageUrl */}
           <PropertyImageGallery 
-            imageUrl={property.image_url} 
+            images={property.images || []} 
             title={property.title} 
           />
           <PropertyBasicInfoCard property={property} />
@@ -64,9 +62,8 @@ const PropertyDetails = () => {
           <div className="space-y-6 lg:sticky lg:top-6">
             <PropertyStatusManager 
               currentStatus={property.status} 
-              onStatusChange={handleStatusChange} 
             />
-            <PropertyQuickActions />
+            <PropertyQuickActions propertyId={id!} />
             <PropertyMetadata property={property} />
             <PropertyStats />
           </div>
@@ -77,6 +74,7 @@ const PropertyDetails = () => {
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
         onConfirm={handleDelete}
+        isDeleting={isDeleting}
       />
 
       <PropertyCreateModal

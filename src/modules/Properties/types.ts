@@ -1,20 +1,32 @@
 
+export interface PropertyImage {
+  id: string;
+  property_id: string;
+  image_url: string;
+  display_order: number;
+  is_primary: boolean;
+  created_at: string;
+}
+
 export interface Property {
   id: string;
+  user_id: string;
   title: string;
+  description: string | null;
   address: string;
   city: string;
   district: string;
+  type: 'apartment' | 'house' | 'commercial';
+  status: 'available' | 'sold' | 'reserved';
   price: number;
   area: number;
   rooms: number;
   bathrooms: number;
-  type: 'house' | 'apartment' | 'commercial' | 'land';
-  status: 'available' | 'sold' | 'reserved';
-  image_url: string | null;
-  description: string | null;
   features: string[] | null;
+  image_url: string | null;
+  images?: PropertyImage[];
   created_at: string;
+  updated_at: string;
 }
 
 export interface PropertyFilters {
