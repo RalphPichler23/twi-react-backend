@@ -1,5 +1,5 @@
 // src/modules/Properties/Details/components/edit/PropertyImageManager.tsx
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { PropertyImage } from '@modules/Properties/types';
 import useUploadPropertyImage from '@modules/Properties/Details/api/useUploadPropertyImage';
 import useDeletePropertyImage from '@modules/Properties/Details/api/useDeletePropertyImage';
@@ -22,7 +22,7 @@ const PropertyImageManager = ({ propertyId, images }: PropertyImageManagerProps)
   const { mutate: bulkUpdateOrder } = useBulkUpdateImageOrder(propertyId);
 
   // Update local images when props change
-  useState(() => {
+  useEffect(() => {
     setLocalImages(images);
   }, [images]);
 

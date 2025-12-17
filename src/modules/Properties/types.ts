@@ -25,6 +25,7 @@ export interface Property {
   features: string[] | null;
   image_url: string | null;
   images?: PropertyImage[];
+  is_property_of_month?: boolean;
   created_at: string;
   updated_at: string;
 }

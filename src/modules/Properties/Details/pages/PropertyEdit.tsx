@@ -146,6 +146,13 @@ const PropertyEdit = () => {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Image Manager - FULL WIDTH */}
+        <PropertyImageManager 
+          propertyId={id!}
+          images={images}
+        />
+
+        {/* Rest of Form in 2-Column Layout */}
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Left Column - Main Form */}
           <div className="lg:col-span-2 space-y-6">
@@ -163,12 +170,6 @@ const PropertyEdit = () => {
           {/* Right Column - Sidebar */}
           <div className="lg:col-span-1">
             <div className="space-y-6 lg:sticky lg:top-6">
-              {/* Replace PropertyImageUpload with PropertyImageManager */}
-              <PropertyImageManager 
-                propertyId={id!}
-                images={images}
-                onImagesChange={setImages}
-              />
               <PropertyTypeStatus form={form} onChange={handleChange} />
               <PropertyEditActions
                 isUpdating={isUpdating}
