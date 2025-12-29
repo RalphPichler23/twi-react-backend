@@ -130,16 +130,12 @@ const Team = () => {
 
       {/* Results Header */}
       <div className="flex items-center justify-between mb-4">
-        {isLoading ? (
-          <LoadingComponent />
-        ) : (
-          <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-900">{filteredMembers.length}</span> 
-            {' '}von{' '}
-            <span className="font-semibold text-gray-900">{(members as TeamMember[]).length}</span>
-            {' '}Teammitgliedern
-          </p>
-        )}
+        <p className="text-sm text-gray-600">
+          <span className="font-semibold text-gray-900">{filteredMembers.length}</span> 
+          {' '}von{' '}
+          <span className="font-semibold text-gray-900">{(members as TeamMember[]).length}</span>
+          {' '}Teammitgliedern
+        </p>
       </div>
 
       {/* Team Members Grid */}

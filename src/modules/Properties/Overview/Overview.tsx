@@ -81,14 +81,10 @@ const Properties = () => {
       />
 
       {/* Results Header */}
-      <div className="flex items-center justify-between mb-4">
-        {isLoading ? (
-          <LoadingComponent />
-        ) : (
-          <p className="text-sm text-gray-600">
-            <span className="font-semibold text-gray-900">{totalCount}</span> Immobilien gefunden
-          </p>
-        )}
+      <div className="flex items-center justify-between mb-4"> 
+        <p className="text-sm text-gray-600">
+          <span className="font-semibold text-gray-900">{totalCount}</span> Immobilien gefunden
+        </p>
       </div>
 
       {/* Property Grid */}
