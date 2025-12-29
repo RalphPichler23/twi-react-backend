@@ -19,7 +19,8 @@
       "@lib/*": ["src/lib/*"],
       "@layouts/*": ["src/layouts/*"],
       "@navigation/*": ["src/navigation/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@team/*": ["src/modules/Team/*"]
     }, 
 
     /* Bundler mode */

@@ -17,6 +17,7 @@ export default defineConfig({
       '@layouts': path.resolve(__dirname, './src/layouts'),
       '@navigation': path.resolve(__dirname, './src/navigation'),
       '@shared': path.resolve(__dirname, './src/shared'),
+      '@team': path.resolve(__dirname, './src/modules/Team'),
     },
   },
 })

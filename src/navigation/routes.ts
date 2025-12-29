@@ -28,6 +28,24 @@ export const protectedRoutes: RouteConfig[] = [
     title: 'Immobilien',
     showInNav: false,
   },
+  {
+    path: '/team',
+    component: lazy(() => import('@/modules/Team/Team')),
+    title: 'Team',
+    showInNav: false,
+  },
+  {
+    path: '/team/:id',
+    component: lazy(() => import('@/modules/Properties/Details/pages/PropertyEdit')),
+    title: 'Team - Mitglied',
+    showInNav: false,
+  },
+  {
+    path: '/team/:id/edit',
+    component: lazy(() => import('@/modules/Properties/Details/pages/PropertyEdit')),
+    title: 'Team - Mitglied bearbeiten',
+    showInNav: false,
+  },
 ];
 
 // Public Routes (kein Login nötig)
