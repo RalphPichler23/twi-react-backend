@@ -35,15 +35,9 @@ export const protectedRoutes: RouteConfig[] = [
     showInNav: false,
   },
   {
-    path: '/team/:id',
-    component: lazy(() => import('@/modules/Properties/Details/pages/PropertyEdit')),
-    title: 'Team - Mitglied',
-    showInNav: false,
-  },
-  {
-    path: '/team/:id/edit',
-    component: lazy(() => import('@/modules/Properties/Details/pages/PropertyEdit')),
-    title: 'Team - Mitglied bearbeiten',
+    path: '/testimonials',
+    component: lazy(() => import('@testimonials/Testimonials')),
+    title: 'Testimonials',
     showInNav: false,
   },
 ];

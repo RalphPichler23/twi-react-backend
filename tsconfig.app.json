@@ -20,7 +20,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@navigation/*": ["src/navigation/*"],
       "@shared/*": ["src/shared/*"],
-      "@team/*": ["src/modules/Team/*"]
+      "@team/*": ["src/modules/Team/*"],
+      "@testimonials/*": ["src/modules/Testimonials/*"]
     }, 
 
     /* Bundler mode */
