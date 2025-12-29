@@ -130,16 +130,12 @@ const Testimonials = () => {
 
       {/* Results Header */}
       <div className="flex items-center justify-between mb-4">
-        {isLoading ? (
-          <LoadingComponent />
-        ) : (
-          <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600">
             <span className="font-semibold text-gray-900">{filteredTestimonials.length}</span> 
             {' '}von{' '}
             <span className="font-semibold text-gray-900">{(testimonials as Testimonial[]).length}</span>
             {' '}Testimonials
-          </p>
-        )}
+        </p>
       </div>
 
       {/* Testimonials Grid */}
