@@ -16,7 +16,7 @@ export interface Property {
   address: string;
   city: string;
   district: string;
-  type: 'apartment' | 'house' | 'commercial';
+  type: 'apartment' | 'house' | 'commercial' | 'land' | 'rental' | 'investment';
   status: 'available' | 'sold' | 'reserved';
   price: number;
   area: number;

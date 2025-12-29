@@ -26,11 +26,13 @@ const PropertyBasicInfoCard = ({ property }: PropertyBasicInfoCardProps) => {
   const getTypeLabel = (type: Property['type']) => {
     const typeLabels = {
       house: 'Haus',
-      apartment: 'Wohnung',
+      apartment: 'Eigentumswohnung',
       commercial: 'Gewerbe',
-      land: 'Grundstück',
+      land: 'Baugrund',
+      rental: 'Mietobjekt',
+      investment: 'Anlageobjekt',
     };
-    return typeLabels[type];
+    return typeLabels[type] || type;
   };
 
   const statusBadge = getStatusBadge(property.status);

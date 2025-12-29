@@ -35,9 +35,11 @@ const PropertyTypeStatus = ({ form, onChange }: PropertyTypeStatusProps) => {
               className="w-full pl-4 pr-10 py-3 focus:outline-none border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors appearance-none bg-white cursor-pointer"
             >
               <option value="house">🏠 Haus</option>
-              <option value="apartment">🏢 Wohnung</option>
+              <option value="apartment">🏢 Eigentumswohnung</option>
               <option value="commercial">🏪 Gewerbe</option>
-              <option value="land">🌳 Grundstück</option>
+              <option value="land">🌳 Baugrund</option>
+              <option value="rental">🔑 Mietobjekt</option>
+              <option value="investment">💰 Anlageobjekt</option>
             </select>
             <svg className="absolute right-3 top-3.5 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>

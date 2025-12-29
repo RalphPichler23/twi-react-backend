@@ -59,7 +59,7 @@ const PropertyDetails = () => {
 
         {/* Right Column - Admin Sidebar */}
         <div className="lg:col-span-1">
-          <div className="space-y-6 lg:sticky lg:top-6">
+          <div className="space-y-6 lg:top-6">
             <PropertyStatusManager 
               currentStatus={property.status} 
             />

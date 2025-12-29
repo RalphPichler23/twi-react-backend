@@ -169,7 +169,7 @@ const PropertyEdit = () => {
 
           {/* Right Column - Sidebar */}
           <div className="lg:col-span-1">
-            <div className="space-y-6 lg:sticky lg:top-6">
+            <div className="space-y-6 lg:top-6">
               <PropertyTypeStatus form={form} onChange={handleChange} />
               <PropertyEditActions
                 isUpdating={isUpdating}

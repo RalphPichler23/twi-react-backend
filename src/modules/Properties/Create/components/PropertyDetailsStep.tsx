@@ -26,9 +26,11 @@ const PropertyDetailsStep = ({ data, onChange, errors }: PropertyDetailsStepProp
           onChange={(e) => onChange({ type: e.target.value as PropertyCreateForm['type'] })}
           options={[
             { value: 'house', label: '🏠 Haus' },
-            { value: 'apartment', label: '🏢 Wohnung' },
+            { value: 'apartment', label: '🏢 Eigentumswohnung' },
             { value: 'commercial', label: '🏪 Gewerbe' },
-            { value: 'land', label: '🌳 Grundstück' },
+            { value: 'land', label: '🌳 Baugrund' },
+            { value: 'rental', label: '🔑 Mietobjekt' },
+            { value: 'investment', label: '💰 Anlageobjekt' },
           ]}
           required
           fullWidth
