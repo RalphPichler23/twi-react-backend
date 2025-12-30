@@ -14,7 +14,6 @@ import {
   useToggleTestimonialStatus 
 } from '@testimonials/api';
 import type { Testimonial, TestimonialFormData } from '@testimonials/types';
-import LoadingComponent from '@/shared/components/LoadingComponent';
 import ErrorHandle from '@/shared/components/ErrorHandle';
 import DeleteConfirmationModal from '@/shared/components/DeleteConfirmationModal';
 
