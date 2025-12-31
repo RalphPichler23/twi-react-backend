@@ -46,7 +46,7 @@ const Login = () => {
         </div>
 
         {/* Login Card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-16">
           {/* Error Message */}
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -93,16 +93,6 @@ const Login = () => {
               />
             </div>
 
-            {/* Forgot Password Link */}
-            <div className="flex justify-end">
-              <Link 
-                to="/forgot-password" 
-                className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-              >
-                Passwort vergessen?
-              </Link>
-            </div>
-
             {/* Submit Button */}
             <button
               type="submit"
@@ -122,29 +112,6 @@ const Login = () => {
               )}
             </button>
           </form>
-
-          {/* Signup Link */}
-          <div className="mt-6 pt-6 border-t border-gray-100 text-center">
-            <p className="text-sm text-gray-600">
-              Noch kein Account?{' '}
-              <Link 
-                to="/signup" 
-                className="font-semibold text-primary hover:text-primary/80 transition-colors"
-              >
-                Jetzt registrieren
-              </Link>
-            </p>
-          </div>
-        </div>
-
-        {/* Trust Badge */}
-        <div className="mt-6 text-center">
-          <div className="inline-flex items-center gap-2 text-sm text-gray-500">
-            <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-            </svg>
-            Sichere Verbindung
-          </div>
         </div>
       </div>
     </div>
