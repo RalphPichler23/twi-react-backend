@@ -4,7 +4,6 @@ import PropertyGrid from '@modules/Properties/Overview/components/PropertyGrid';
 import Pagination from '@modules/Properties/Overview/components/Pagination';
 import useFetchProperties from '@modules/Properties/Overview/api/useFetchProperties';
 import type { PropertyFilters as Filters } from '@modules/Properties/types';
-import LoadingComponent from '@/shared/components/LoadingComponent';
 import ErrorHandle from '@/shared/components/ErrorHandle';
 import Button from '@/shared/components/ui/Button';
 import PropertyCreateModal from '@modules/Properties/Create/container/PropertyCreateModal';

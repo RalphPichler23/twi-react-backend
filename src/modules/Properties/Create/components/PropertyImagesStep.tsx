@@ -15,7 +15,7 @@ interface ImagePreview {
   isPrimary: boolean;
 }
 
-const PropertyImagesStep = ({ data, onChange, errors }: PropertyImagesStepProps) => {
+const PropertyImagesStep = ({ onChange, errors }: PropertyImagesStepProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imagePreviews, setImagePreviews] = useState<ImagePreview[]>([]);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);

@@ -9,7 +9,6 @@ interface BulkUpdateOrderParams {
 }
 
 const bulkUpdateImageOrder = async ({
-  propertyId,
   images,
 }: BulkUpdateOrderParams): Promise<void> => {
   // Update all images in parallel

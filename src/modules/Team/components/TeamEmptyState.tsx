@@ -1,5 +1,4 @@
 // src/modules/Team/components/TeamEmptyState.tsx
-import { Link } from 'react-router-dom';
 
 interface TeamEmptyStateProps {
   hasSearch: boolean;

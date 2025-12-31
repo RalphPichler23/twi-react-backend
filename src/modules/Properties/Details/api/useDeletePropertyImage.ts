@@ -10,7 +10,6 @@ interface DeleteImageParams {
 }
 
 const deletePropertyImage = async ({
-  propertyId,
   imageId,
   imageUrl,
 }: DeleteImageParams): Promise<void> => {

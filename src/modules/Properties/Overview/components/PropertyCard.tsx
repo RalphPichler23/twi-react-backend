@@ -31,14 +31,16 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   };
 
   const getTypeIcon = (type: Property['type']) => {
-    const icons = {
-      house: '🏠',
-      apartment: '🏢',
-      commercial: '🏪',
-      land: '🌳',
-    };
-    return icons[type];
+  const icons: Record<Property['type'], string> = {
+    house: '🏠',
+    apartment: '🏢',
+    commercial: '🏪',
+    land: '🌳',
+    rental: '🔑',
+    investment: '💰',
   };
+  return icons[type] || '🏡';
+};
 
   return (
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">

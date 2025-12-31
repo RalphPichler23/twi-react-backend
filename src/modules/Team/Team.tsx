@@ -14,7 +14,6 @@ import {
   useToggleTeamMemberStatus 
 } from '@team/api';
 import type { TeamMember, TeamMemberFormData } from '@team/types';
-import LoadingComponent from '@/shared/components/LoadingComponent';
 import ErrorHandle from '@/shared/components/ErrorHandle';
 import DeleteConfirmationModal from '@/shared/components/DeleteConfirmationModal';
 
