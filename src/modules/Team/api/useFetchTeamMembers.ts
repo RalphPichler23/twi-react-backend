@@ -8,7 +8,7 @@ const fetchTeamMembers = async (): Promise<TeamMember[]> => {
   const { data, error } = await supabase
     .from('team_members')
     .select('*')
-    .order('display_order', { ascending: true });
+    .order('updated_at', { ascending: false });
 
   if (error) throw error;
   return data || [];

@@ -30,14 +30,20 @@ export const protectedRoutes: RouteConfig[] = [
   },
   {
     path: '/team',
-    component: lazy(() => import('@/modules/Team/Team')),
+    component: lazy(() => import('@/modules/Team/pages/Team')),
     title: 'Team',
     showInNav: false,
   },
   {
     path: '/testimonials',
-    component: lazy(() => import('@testimonials/Testimonials')),
+    component: lazy(() => import('@/modules/Testimonials/pages/Testimonials')),
     title: 'Testimonials',
+    showInNav: false,
+  },
+  {
+    path: '/sidecosts',
+    component: lazy(() => import('@/modules/Sidecosts/pages/Sidecosts')),
+    title: 'Nebenkosten',
     showInNav: false,
   },
 ];

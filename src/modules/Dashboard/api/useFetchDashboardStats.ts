@@ -5,13 +5,11 @@ import { DASHBOARD_STATS } from './_keys';
 import type { DashboardStats } from '../types';
 
 const fetchDashboardStats = async (): Promise<DashboardStats> => {
-  const userId = await supabase.auth.getUser().then(({ data }) => data.user?.id || null);
 
   // Get all properties for user
   const { data: properties, error } = await supabase
     .from('properties')
     .select('price, status, type')
-    .eq('user_id', userId);
 
   if (error) throw error;
 

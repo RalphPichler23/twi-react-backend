@@ -18,7 +18,8 @@ export default defineConfig({
       '@navigation': path.resolve(__dirname, './src/navigation'),
       '@shared': path.resolve(__dirname, './src/shared'),
       '@team': path.resolve(__dirname, './src/modules/Team'),
-      '@testimonials': path.resolve(__dirname, './src/modules/Testimonials')
+      '@testimonials': path.resolve(__dirname, './src/modules/Testimonials'),
+      '@sidecosts': path.resolve(__dirname, './src/modules/Sidecosts'),
     },
   },
 })

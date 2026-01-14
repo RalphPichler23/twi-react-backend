@@ -8,7 +8,7 @@ const fetchTestimonials = async (): Promise<Testimonial[]> => {
   const { data, error } = await supabase
     .from('testimonials')
     .select('*')
-    .order('display_order', { ascending: true });
+    .order('updated_at', { ascending: false });
 
   if (error) throw error;
   return data || [];

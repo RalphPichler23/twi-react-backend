@@ -5,15 +5,11 @@ import { PROPERTIES } from '@modules/Properties/Overview/api/_keys';
 import { PROPERTY_OF_MONTH } from './_keys';
 
 const setPropertyOfMonth = async (propertyId: string): Promise<void> => {
-  const userId = await supabase.auth.getUser().then(({ data }) => data.user?.id || null);
-
-  if (!userId) throw new Error('Not authenticated');
-
+ 
   // First, unset any existing property of month for this user
   const { error: unsetError } = await supabase
     .from('properties')
     .update({ is_property_of_month: false })
-    .eq('user_id', userId)
     .eq('is_property_of_month', true);
 
   if (unsetError) throw unsetError;
@@ -22,8 +18,7 @@ const setPropertyOfMonth = async (propertyId: string): Promise<void> => {
   const { error: setError } = await supabase
     .from('properties')
     .update({ is_property_of_month: true })
-    .eq('id', propertyId)
-    .eq('user_id', userId);
+    .eq('id', propertyId);
 
   if (setError) throw setError;
 };

@@ -6,12 +6,10 @@ import type { Property } from '@modules/Properties/types';
 const PROPERTY_OF_MONTH_KEY = 'property-of-month';
 
 const fetchPropertyOfMonth = async (): Promise<Property | null> => {
-  const userId = await supabase.auth.getUser().then(({ data }) => data.user?.id || null);
 
   const { data, error } = await supabase
     .from('properties')
     .select('*')
-    .eq('user_id', userId)
     .eq('is_property_of_month', true)
     .maybeSingle();
 

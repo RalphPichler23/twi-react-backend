@@ -88,6 +88,8 @@ const fetchProperties = async (
       break;
   }
 
+  query = query.order('updated_at', { ascending: false });
+
   const { data, error, count } = await query;
 
   if (error) throw error;

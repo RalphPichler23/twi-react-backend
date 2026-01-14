@@ -18,8 +18,7 @@ const fetchProperty = async (id: string): Promise<Property> => {
   const { data: images, error: imagesError } = await supabase
     .from('property_images')
     .select('*')
-    .eq('property_id', id)
-    .order('display_order', { ascending: true });
+    .eq('property_id', id);
 
   if (imagesError) {
     console.error('Failed to fetch images:', imagesError);
