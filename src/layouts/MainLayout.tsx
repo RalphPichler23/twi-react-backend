@@ -56,7 +56,7 @@ const MainLayout = () => {
     },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname.includes(path);
 
   const handleSignOut = async () => {
     await signOut();

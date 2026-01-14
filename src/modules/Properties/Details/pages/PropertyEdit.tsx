@@ -12,6 +12,8 @@ import PropertyFeatures from '@modules/Properties/Details/components/edit/Proper
 import PropertyImageManager from '@modules/Properties/Details/components/edit/PropertyImageManager';
 import PropertyTypeStatus from '@modules/Properties/Details/components/edit/PropertyTypeStatus';
 import PropertyEditActions from '@modules/Properties/Details/components/edit/PropertyEditActions';
+import PropertyVideoManager from "@modules/Properties/Details/components/edit/PropertyVideoManager";
+
 
 type PropertyFormState = {
   title: string;
@@ -156,6 +158,7 @@ const PropertyEdit = () => {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Left Column - Main Form */}
           <div className="lg:col-span-2 space-y-6">
+            <PropertyVideoManager property={property} />
             <PropertyBasicInfo form={form} onChange={handleChange} />
             <PropertyDetailsForm form={form} onChange={handleChange} />
             <PropertyDescription form={form} onChange={handleChange} />

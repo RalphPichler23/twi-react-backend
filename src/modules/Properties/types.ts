@@ -24,6 +24,7 @@ export interface Property {
   bathrooms: number;
   features: string[] | null;
   image_url: string | null;
+  video_url: string | null;
   images?: PropertyImage[];
   is_property_of_month?: boolean;
   created_at: string;

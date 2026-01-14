@@ -11,7 +11,6 @@ import PropertyFeaturesCard from '@modules/Properties/Details/components/details
 import PropertyStatusManager from '@modules/Properties/Details/components/details/PropertyStatusManager';
 import PropertyQuickActions from '@modules/Properties/Details/components/details/PropertyQuickActions';
 import PropertyMetadata from '@modules/Properties/Details/components/details/PropertyMetadata';
-import PropertyStats from '@modules/Properties/Details/components/details/PropertyStats';
 import DeleteConfirmationModal from '@shared/components/DeleteConfirmationModal';
 import PropertyCreateModal from '@modules/Properties/Create/container/PropertyCreateModal';
 import ErrorHandle from '@/shared/components/ErrorHandle';
@@ -65,7 +64,6 @@ const PropertyDetails = () => {
             />
             <PropertyQuickActions propertyId={id!} />
             <PropertyMetadata property={property} />
-            <PropertyStats />
           </div>
         </div>
       </div>
