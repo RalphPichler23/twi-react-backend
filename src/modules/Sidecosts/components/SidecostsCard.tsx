@@ -18,7 +18,6 @@ interface SidecostCardProps {
 const SidecostCard = ({
   title,
   description,
-  type,
   file,
   isLoading,
   onUpload,

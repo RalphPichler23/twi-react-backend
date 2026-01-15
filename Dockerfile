@@ -1,41 +1,25 @@
 # Stage 1: Build
 FROM node:20-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
+# Dependencies installieren
 COPY package*.json ./
+RUN npm install --legacy-peer-deps
 
-# Install dependencies
-RUN npm ci
-
-# Copy source code
+# App bauen
 COPY . .
-
-# Build the app
 RUN npm run build
 
-# Stage 2: Production
-FROM node:20-alpine AS production
+# Stage 2: Serve with Node
+FROM node:20-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+RUN npm install -g serve
 
-# Install only production dependencies
-RUN npm ci --only=production
-
-# Copy built app from builder stage
 COPY --from=builder /app/dist ./dist
 
-# Expose port
-EXPOSE 4321
+EXPOSE 3000
 
-# Set environment to production
-ENV NODE_ENV=production
-
-# Start the app
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
