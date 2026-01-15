@@ -46,6 +46,12 @@ export const protectedRoutes: RouteConfig[] = [
     title: 'Nebenkosten',
     showInNav: false,
   },
+  {
+    path: '/blog',
+    component: lazy(() => import('@/modules/Blog/pages/Blog')),
+    title: 'Nebenkosten',
+    showInNav: false,
+  },
 ];
 
 // Public Routes (kein Login nötig)
